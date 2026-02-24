@@ -1,13 +1,17 @@
 /**
- * OOPS Banner App - UC1
- * Foundational step: Printing literal text to console.
+ * OOPS Banner App - UC2
+ * Renders "OOPS" as a large ASCII banner.
  * @author Sandhya Agarwal
- * @version 1.0
+ * @version 2.0
  */
 public class OOPSBannerApp {
     public static void main(String[] args) {
-        // UC1: Printing the literal text "OOPS"
-        System.out.println("OOPS");
+        System.out.println(" **** **** **** **** ");
+        System.out.println("* * * * * * * ");
+        System.out.println("* * * * * * * ");
+        System.out.println("* * * * ***** **** ");
+        System.out.println("* * * * * *");
+        System.out.println("* * * * * *");
+        System.out.println(" **** **** * **** ");
     }
 }
-
