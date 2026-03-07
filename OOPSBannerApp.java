@@ -1,36 +1,29 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class OOPSBannerApp {
-
-    static class CharacterPattern {
-        private char character;
-        private String[] lines;
-
-        public CharacterPattern(char character, String[] lines) {
-            this.character = character;
-            this.lines = lines;
-        }
-
-        public String getLine(int index) {
-            return lines[index];
-        }
-    }
-
     public static void main(String[] args) {
-        CharacterPattern charO = new CharacterPattern('O', new String[]{
+        Map<Character, String[]> patternMap = new HashMap<>();
+
+        patternMap.put('O', new String[]{
             " **** ", "* *", "* *", "* *", "* *", "* *", " **** "
         });
-        CharacterPattern charP = new CharacterPattern('P', new String[]{
+        patternMap.put('P', new String[]{
             "***** ", "* *", "* *", "***** ", "* ", "* ", "* "
         });
-        CharacterPattern charS = new CharacterPattern('S', new String[]{
-            " **** ", "* ", "* ", " **** ", "    * ", "    * ", " **** "
+        patternMap.put('S', new String[]{
+            " **** ", "* ", "* ", " **** ", "     *", "     *", " **** "
         });
 
-        CharacterPattern[] word = {charO, charO, charP, charS};
+        char[] word = {'O', 'O', 'P', 'S'};
 
         for (int i = 0; i < 7; i++) {
             StringBuilder sb = new StringBuilder();
-            for (CharacterPattern cp : word) {
-                sb.append(cp.getLine(i)).append("  ");
+            for (char c : word) {
+                String[] pattern = patternMap.get(c);
+                if (pattern != null) {
+                    sb.append(pattern[i]).append("  ");
+                }
             }
             System.out.println(sb.toString());
         }
