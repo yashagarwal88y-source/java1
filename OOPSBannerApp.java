@@ -1,39 +1,38 @@
 public class OOPSBannerApp {
+
+    static class CharacterPattern {
+        private char character;
+        private String[] lines;
+
+        public CharacterPattern(char character, String[] lines) {
+            this.character = character;
+            this.lines = lines;
+        }
+
+        public String getLine(int index) {
+            return lines[index];
+        }
+    }
+
     public static void main(String[] args) {
-        String[] bannerLines = new String[7];
+        CharacterPattern charO = new CharacterPattern('O', new String[]{
+            " **** ", "* *", "* *", "* *", "* *", "* *", " **** "
+        });
+        CharacterPattern charP = new CharacterPattern('P', new String[]{
+            "***** ", "* *", "* *", "***** ", "* ", "* ", "* "
+        });
+        CharacterPattern charS = new CharacterPattern('S', new String[]{
+            " **** ", "* ", "* ", " **** ", "    * ", "    * ", " **** "
+        });
+
+        CharacterPattern[] word = {charO, charO, charP, charS};
 
         for (int i = 0; i < 7; i++) {
-            bannerLines[i] = String.join("  ", 
-                getLetterO(i), 
-                getLetterO(i), 
-                getLetterP(i), 
-                getLetterS(i)
-            );
+            StringBuilder sb = new StringBuilder();
+            for (CharacterPattern cp : word) {
+                sb.append(cp.getLine(i)).append("  ");
+            }
+            System.out.println(sb.toString());
         }
-
-        for (String line : bannerLines) {
-            System.out.println(line);
-        }
-    }
-
-    public static String getLetterO(int row) {
-        String[] patterns = {
-            " **** ", "* *", "* *", "* *", "* *", "* *", " **** "
-        };
-        return patterns[row];
-    }
-
-    public static String getLetterP(int row) {
-        String[] patterns = {
-            "***** ", "* *", "* *", "***** ", "* ", "* ", "* "
-        };
-        return patterns[row];
-    }
-
-    public static String getLetterS(int row) {
-        String[] patterns = {
-            " **** ", "* ", "* ", " **** ", "     *", "     *", " **** "
-        };
-        return patterns[row];
     }
 }
